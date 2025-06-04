@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Galeria de Fotos</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    /* --- CARROSSEL --- */
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 10px;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+    }
+
+    .carousel img {
+      scroll-snap-align: center;
+      max-height: 200px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.7);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.05);
+    }
+
+    /* --- GALERIA POLAROID --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .polaroid {
+      background: #fff;
+      padding: 10px 10px 25px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .polaroid img {
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .polaroid:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(255, 105, 180, 0.6);
+    }
+
+    /* --- MODAL --- */
+    #modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 9999;
+    }
+
+    #modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #modal img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 20px;
+      box-shadow: 0 0 30px hotpink;
+      animation: pulseHeart 1.5s ease infinite;
+    }
+
+    #modal .close-btn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 30px;
+      color: white;
+      background: rgba(255,105,180,0.8);
+      border-radius: 50%;
+      width: 40px; height: 40px;
+      line-height: 40px;
+      text-align: center;
+      box-shadow: 0 0 10px hotpink;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    #modal .close-btn:hover {
+      background: hotpink;
+    }
+
+    /* --- CORAÇÕES --- */
+    .heart {
+      position: absolute;
+      width: 20px; height: 20px;
+      background: url('data:image/svg+xml;utf8,<svg fill="%23e91e63" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center center;
+      background-size: contain;
+      pointer-events: none;
+      animation: floatUp 2s ease forwards;
+    }
+
+    @keyframes floatUp {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-40px) scale(1.5); }
+    }
+
+    @keyframes pulseHeart {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 30px hotpink; }
+      50% { transform: scale(1.1); box-shadow: 0 0 40px #ff69b4; }
+    }
+
+    .botao-voltar {
+      display: inline-block;
+      margin-top: 30px;
+      color: #fff;
+      text-decoration: none;
+      background: hotpink;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .botao-voltar:hover {
+      background: #ff1493;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Galeria de Fotos 💖</h1>
+
+  <!-- CARROSSEL DE DESTAQUE -->
+  <div class="carousel">
+    <!-- As 15 imagens -->
+    <img src="imagens/espelho.jpeg" alt="Foto 1" />
+    <img src="imagens/espelho2.jpeg" alt="Foto 2" />
+    <img src="imagens/espelho3.jpeg" alt="Foto 3" />
+    <img src="imagens/espelho4.jpeg" alt="Foto 4" />
+    <img src="imagens/espelho5.jpeg" alt="Foto 5" />
+    <img src="imagens/espelho6.jpeg" alt="Foto 6" />
+    <img src="imagens/espelho7.jpeg" alt="Foto 7" />
+    <img src="imagens/espelho8.jpeg" alt="Foto 8" />
+    <img src="imagens/espelho9.jpeg" alt="Foto 9" />
+    <img src="imagens/espelho10.jpeg" alt="Foto 10" />
+    <img src="imagens/espelho11.jpeg" alt="Foto 11" />
+    <img src="imagens/espelho12.jpeg" alt="Foto 12" />
+    <img src="imagens/espelho13.jpeg" alt="Foto 13" />
+    <img src="imagens/espelho14.jpeg" alt="Foto 14" />
+    <img src="imagens/espelho15.jpeg" alt="Foto 15" />
+  </div>
+
+  <div class="grid">
+  <div class="polaroid"><img src="imagens/espelho.jpeg" alt="Nossa foto 1" /></div>
+  <div class="polaroid"><img src="imagens/espelho2.jpeg" alt="Nossa foto 2" /></div>
+  <div class="polaroid"><img src="imagens/espelho3.jpeg" alt="Nossa foto 3" /></div>
+  <div class="polaroid"><img src="imagens/espelho4.jpeg" alt="Nossa foto 4" /></div>
+  <div class="polaroid"><img src="imagens/espelho5.jpeg" alt="Nossa foto 5" /></div>
+  <div class="polaroid"><img src="imagens/espelho6.jpeg" alt="Nossa foto 6" /></div>
+  <div class="polaroid"><img src="imagens/espelho7.jpeg" alt="Nossa foto 7" /></div>
+  <div class="polaroid"><img src="imagens/espelho8.jpeg" alt="Nossa foto 8" /></div>
+  <div class="polaroid"><img src="imagens/espelho9.jpeg" alt="Nossa foto 9" /></div>
+  <div class="polaroid"><img src="imagens/espelho10.jpeg" alt="Nossa foto 10" /></div>
+  <div class="polaroid"><img src="imagens/espelho11.jpeg" alt="Nossa foto 11" /></div>
+  <div class="polaroid"><img src="imagens/espelho12.jpeg" alt="Nossa foto 12" /></div>
+  <div class="polaroid"><img src="imagens/espelho13.jpeg" alt="Nossa foto 13" /></div>
+  <div class="polaroid"><img src="imagens/espelho14.jpeg" alt="Nossa foto 14" /></div>
+  <div class="polaroid"><img src="imagens/espelho15.jpeg" alt="Nossa foto 15" /></div>
+</div>
+
+
+  <!-- MODAL -->
+  <div id="modal">
+    <span class="close-btn">&times;</span>
+    <img src="" alt="Foto ampliada" />
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.close-btn');
+    const allImgs = document.querySelectorAll('.carousel img, .polaroid img');
+
+    allImgs.forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modal.classList.add('open');
+      });
+
+      // Zoom com scroll
+      let scale = 1;
+      img.addEventListener('wheel', e => {
+        e.preventDefault();
+        scale += (e.deltaY < 0 ? 0.1 : -0.1);
+        scale = Math.min(Math.max(scale, 1), 3);
+        img.style.transform = `scale(${scale})`;
+      });
+
+      img.addEventListener('mouseleave', () => {
+        scale = 1;
+        img.style.transform = 'scale(1)';
+      });
+
+      // Corações flutuantes
+      img.addEventListener('mousemove', e => {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        const rect = img.getBoundingClientRect();
+        heart.style.left = (e.clientX - rect.left) + 'px';
+        heart.style.top = (e.clientY - rect.top) + 'px';
+        img.parentElement.appendChild(heart);
+        heart.addEventListener('animationend', () => heart.remove());
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('open');
+      modalImg.src = '';
+    });
+
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.classList.remove('open');
+        modalImg.src = '';
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === "Escape" && modal.classList.contains('open')) {
+        modal.classList.remove('open');
+        modalImg.src = '';
+      }
+    });
+  </script>
+
+  <a href="index.html" class="botao-voltar">← Voltar para o início</a>
+
+</body>
+</html>

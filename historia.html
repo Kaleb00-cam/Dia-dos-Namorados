@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Nossa História</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+body {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+
+  body.fade-in {
+    opacity: 1;
+  }
+</style>
+
+
+</head>
+<body class="Fundo-historia">
+
+  <div class="historia-container">
+    <h1>Nossa História 💘</h1>
+
+    <div class="linha-do-tempo">
+      <div class="evento">
+        <h2>Nosso dia</h2>
+        <p><strong>27 de março de 2022</strong></p>
+        <p>O dia em que olhei a primeira vez para o meu amor, mal sabia eu que ali começava um amor <strong>INCONDICIONAL</strong></p>
+      </div>
+
+      <div class="evento">
+        <h2>Nosso primeiro beijo 💋</h2>
+        <p><strong>04 de Janeiro de 2023</strong></p>
+        <p>Foi mágico, pareceu que o mundo parou nesse momento. <br> <strong> INESQUECIVEL!! </strong></p>
+      </div>
+
+      <div class="evento">
+        <h2>Nosso primeiro aniversário 🎉</h2>
+        <p><strong>27 de Março de 2023</strong></p>
+        <p>Um ano completo junto de você, um ano de repleta felicidades e amor! Que venham muitos mais.</p>
+      </div>
+
+      <div class="evento">
+        <h2> Nossos sonhos juntos 🌍</h2>
+        <p>Vamos construir uma vida linda, cheia de planos, viagens, risadas e amor verdadeiro.</p>
+      </div>
+    </div>
+
+    <a href="index.html" class="botao-lindo">← Voltar</a>
+</div>
+
+ <script>
+  // Fade-in quando a página carrega
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+  });
+
+  // Fade-out antes de trocar de página
+  document.querySelectorAll('a').forEach(link => {
+    const url = link.getAttribute("href");
+
+    if (url && !url.startsWith("#") && !url.startsWith("mailto")) {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.body.classList.remove("fade-in");
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = url;
+        }, 500);
+      });
+    }
+  });
+</script>
+
+
+</body>
+</html>
