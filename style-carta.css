@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: #fff0f5;
+  color: #4a2c2a;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.carta-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 50px 30px;
+  background: #fffafc;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+  border-radius: 20px;
+  margin-top: 60px;
+  line-height: 1.8;
+  font-size: 1.2em;
+  position: relative;
+}
+
+.revelar {
+  color: #ff69b4;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.revelar:hover {
+  color: #d14b8f;
+  text-decoration: underline;
+}
+
+.parte.escondido {
+  display: none;
+}
+
+.rodape {
+  margin-top: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.botao-voltar {
+  background-color: #ff69b4;
+  color: white;
+  padding: 10px 25px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.botao-voltar:hover {
+  background-color: #d14b8f;
+}

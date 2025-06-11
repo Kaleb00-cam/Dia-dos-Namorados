@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cartinha para o Amor</title>
+  <link rel="stylesheet" href="style-feedback.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Escreva uma cartinha pra mim 💌</h1>
+    <form id="whatsappForm">
+      <textarea id="mensagem" placeholder="Querido amor, eu queria te dizer..."></textarea>
+      <button type="submit" class="botao-enviar">Enviar pelo WhatsApp 💌</button>
+    </form>
+    <a href="index.html" class="botao-voltar">Voltar para o Início</a>
+  </div>
+
+  <script>
+    document.getElementById('whatsappForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const mensagem = document.getElementById('mensagem').value.trim();
+
+      if (!mensagem) {
+        alert("Por favor, escreva algo antes de enviar!");
+        return;
+      }
+
+      const numero = '554599868472'; // EX: 55+DDD+NÚMERO. Ex: 559999999999
+      const textoCodificado = encodeURIComponent(mensagem);
+      window.location.href = `https://wa.me/${numero}?text=${textoCodificado}`;
+    });
+  </script>
+</body>
+</html>

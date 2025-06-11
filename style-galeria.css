@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: #F8F8FF; /* fundo branco gelo para evitar flicker */
+  overflow-x: hidden; /* previne barra horizontal desnecessária */
+}
+
+.background {
+  position: fixed; /* fixed para cobrir toda a tela e não mover */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('imagens/FundoGaleria.jpeg') no-repeat center center;
+  background-size: cover;
+  z-index: 0;
+}
+
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  margin: 60px auto 0 auto; /* centraliza horizontal e da espaçamento superior */
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 30px;
+  padding: 20px 0;
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch; /* para scroll suave no iOS */
+}
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Opera */
+}
+
+/* Botões de navegação fixos no lado do carrossel, melhor para clicar */
+.carousel-btn {
+  background-color: rgba(255, 111, 145, 0.8);
+  border: none;
+  color: white;
+  font-size: 2.5em;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 111, 145, 0.6);
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.prev-btn {
+  margin-right: 10px;
+}
+
+.next-btn {
+  margin-left: 10px;
+}
+
+.polaroid {
+  background: #fff;
+  padding: 10px 10px 40px 10px;
+  border-radius: 15px;
+  width: 180px;
+  box-shadow: 0 8px 15px rgba(255, 111, 145, 0.3);
+  position: relative;
+  font-family: 'Brush Script MT', cursive;
+  color: #d1497a;
+  text-align: center;
+  user-select: none;
+  flex-shrink: 0;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.polaroid img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(255, 111, 145, 0.7);
+}
+
+.polaroid p {
+  margin-top: 12px;
+  font-size: 1.1em;
+  text-shadow: 1px 1px 1px #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .carousel-container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .polaroid {
+    width: 130px;
+    padding-bottom: 30px;
+    font-size: 0.9em;
+  }
+
+  .polaroid p {
+    font-size: 1em;
+  }
+
+  .carousel-btn {
+    font-size: 2em;
+    padding: 8px 12px;
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.rodape {
+  position: relative; /* para manter no fluxo da página */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background: transparent;
+  margin-top: 500px;
+  z-index: 10;
+}
+
+.botao-voltar {
+  background-color: #FF9671;
+  color: white;
+  padding: 14px 32px;
+  font-size: 1.1em;
+  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.botao-voltar:hover {
+  background-color: #FF6F91;
+  transform: scale(1.05);
+}

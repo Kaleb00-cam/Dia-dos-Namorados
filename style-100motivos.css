@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  width: 90%;
+  max-width: 700px;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 105, 135, 0.3);
+}
+
+h1 {
+  font-size: 2.2em;
+  color: #d1497a;
+  margin-bottom: 30px;
+}
+
+.mensagem {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 30px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+button {
+  background-color: #ff6f91;
+  color: white;
+  font-size: 1.3em;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 105, 135, 0.3);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff4e78;
+  transform: scale(1.05);
+}
+
+.botao-voltar {
+  display: inline-block; /* se adapta ao tamanho do conteúdo */
+  background-color: #FF6F91;
+  color: white;
+  padding: 20px 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 0.95em;
+  font-family: 'Georgia', serif;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  margin: 10px auto 0 auto;
+  text-align: center;
+}
+
+.botao-voltar:hover {
+  background-color: #FF4E7A;
+  transform: scale(1.05);
+}
+
+
+.botao-voltar {
+  display: block;
+  text-align: center;
+  margin: 30px auto 0 auto;
+}
+

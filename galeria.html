@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galeria Romântica</title>
+  <link rel="stylesheet" href="style-galeria.css" />
+</head>
+<body>
+  <div class="background">
+    <div class="carousel-container">
+      <button class="carousel-btn prev-btn">&#10094;</button>
+      
+      <div class="carousel">
+        <!-- 15 imagens polaroid -->
+        <div class="polaroid"><img src="imagens/espelho.jpeg" alt="Foto 1" /><p>Você</p></div>
+        <div class="polaroid"><img src="imagens/espelho2.jpeg" alt="Foto 2" /><p>Foi</p></div>
+        <div class="polaroid"><img src="imagens/espelho3.jpeg" alt="Foto 3" /><p>E</p></div>
+        <div class="polaroid"><img src="imagens/espelho4.jpeg" alt="Foto 4" /><p>Sempre</p></div>
+        <div class="polaroid"><img src="imagens/espelho5.jpeg" alt="Foto 5" /><p>Será</p></div>
+        <div class="polaroid"><img src="imagens/espelho6.jpeg" alt="Foto 6" /><p>A</p></div>
+        <div class="polaroid"><img src="imagens/espelho7.jpeg" alt="Foto 7" /><p>Minha</p></div>
+        <div class="polaroid"><img src="imagens/espelho8.jpeg" alt="Foto 8" /><p>Melhor</p></div>
+        <div class="polaroid"><img src="imagens/espelho9.jpeg" alt="Foto 9" /><p>Escolha</p></div>
+        <div class="polaroid"><img src="imagens/espelho10.jpeg" alt="Foto 10" /><p>Eu</p></div>
+        <div class="polaroid"><img src="imagens/espelho11.jpeg" alt="Foto 11" /><p>Te</p></div>
+        <div class="polaroid"><img src="imagens/espelho12.jpeg" alt="Foto 12" /><p>Amo</p></div>
+        <div class="polaroid"><img src="imagens/espelho13.jpeg" alt="Foto 13" /><p>infinitamente</p></div>
+        <div class="polaroid"><img src="imagens/espelho14.jpeg" alt="Foto 14" /><p>Meu</p></div>
+        <div class="polaroid"><img src="imagens/espelho15.jpeg" alt="Foto 15" /><p>Amor</p></div>
+      </div>
+      
+      <button class="carousel-btn next-btn">&#10095;</button>
+    </div>
+  </div>
+
+  <script>
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const carousel = document.querySelector('.carousel');
+
+const scrollStep = 300; // quantidade de scroll por clique
+
+nextBtn.addEventListener('click', () => {
+  // Posição atual do scroll
+  const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+  // Próximo scroll (não passar do máximo)
+  const nextScroll = Math.min(carousel.scrollLeft + scrollStep, maxScrollLeft);
+  carousel.scrollTo({
+    left: nextScroll,
+    behavior: 'smooth'
+  });
+});
+
+prevBtn.addEventListener('click', () => {
+  // Posição atual do scroll
+  const prevScroll = Math.max(carousel.scrollLeft - scrollStep, 0);
+  carousel.scrollTo({
+    left: prevScroll,
+    behavior: 'smooth'
+  });
+});
+
+  </script>
+
+  <footer class="rodape">
+  <a href="index.html" class="botao-voltar">Voltar para o Início</a>
+</footer>
+
+</body>
+</html>

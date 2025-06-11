@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carta para Você</title>
+  <link rel="stylesheet" href="style-carta.css" />
+</head>
+<body>
+  <div class="carta-container">
+    <p>
+      Oi, meu amor... 💌<br><br>
+      Hoje, é o nosso dia, um dia muito importante para nós! <span class="revelar" onclick="mostrarParte(1)">Clique aqui</span> para continuar.
+    </p>
+    <p class="parte escondido" id="parte-1">
+      Cada dia ao seu lado é um dia novo e um dia feliz, você é a pessoa com quem eu.<br>
+      <span class="revelar" onclick="mostrarParte(2)">E sabe o que mais?</span>
+    </p>
+    <p class="parte escondido" id="parte-2">
+      Me apaixono, toda vez que olho para você sinto um batimento mais forte em meu peito. ❤️<br>
+      <span class="revelar" onclick="mostrarParte(3)">Tem mais uma coisa...</span>
+    </p>
+    <p class="parte escondido" id="parte-3">
+      Obrigado por ser minha inspiração, meu abrigo e minha melhor amiga, e obrigo por sempre me apoiar em tudo <br>
+      Te amo infinitamente. 💖
+    </p>
+  </div>
+
+  <footer class="rodape">
+    <a href="index.html" class="botao-voltar">Voltar para o Início</a>
+  </footer>
+
+  <script>
+    function mostrarParte(numero) {
+      document.getElementById(`parte-${numero}`).classList.remove('escondido');
+    }
+  </script>
+</body>
+</html>
+    
